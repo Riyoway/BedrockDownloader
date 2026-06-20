@@ -1,0 +1,33 @@
+[package]
+name = "bedrock-downloader"
+version = "0.1.0"
+description = "Download Minecraft Bedrock (UWP & GDK); install and launch UWP versions"
+authors = ["BedrockDownloader"]
+edition = "2021"
+
+[lib]
+name = "bedrock_downloader_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", features = ["stream"] }
+futures-util = "0.3"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs", "io-util", "time"] }
+md-5 = "0.10"
+hex = "0.4"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

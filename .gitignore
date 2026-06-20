@@ -1,0 +1,15 @@
+# Node / Vite
+/node_modules
+/dist
+
+# generated dev-port override
+/.tauri.dev.conf.json
+
+# Rust / Tauri
+/src-tauri/target
+/src-tauri/gen
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

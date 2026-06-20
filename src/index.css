@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  /* Minecraft Regular as the app-wide font */
+  font-family: "Minecraft", ui-sans-serif, system-ui, sans-serif;
+  /* Desktop-app feel: no text selection by default */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* …except where the user actually types or needs to copy */
+input,
+textarea,
+[contenteditable="true"] {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Remove the focus outline / ring that shows up app-wide on hover & focus.
+   HeroUI draws its focus-visible ring as a box-shadow, so clear both. */
+*:focus,
+*:focus-visible {
+  outline: none !important;
+}
+[data-focus-visible="true"],
+[data-focus="true"] {
+  outline: none !important;
+  box-shadow: none !important;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Thin scrollbars to match the dark theme */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
